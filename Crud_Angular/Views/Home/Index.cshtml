@@ -1,0 +1,146 @@
+﻿<div class="container" ng-controler="PessoasCtrl">
+    <div class="panel panel-info">
+        <div class="panel-heading">Listagem de Pessoas</div>
+        <table class="table table-bordered">
+            <thead style="background-color: burlywood;">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data_Nascimento</th>
+                    <th>Email</th>
+                    <th>Telefones</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="func in Pessoa">
+                    <td>{{func.Id}}</td>
+                    <td>{{func.nome}}</td>
+                    <td>{{func.cpf}}</td>
+                    <td>{{func.dataNascimento}}</td>
+                    <td>{{func.email}}</td>
+                    <td>{{func.Telefones}}</td>
+                    <td style="width:200px">
+                        <a href="#" class="btn btn-info">Editar</a>
+                        <a href="#" class="btn btn-danger">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@* INÍCIO MODAL - ADICIONAR FUNCIONÁRIO *@
+<div class="modal" id="AdicionarFuncionario" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-info">Adicionar Funcionário</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" name="AdicionarNovoFuncionarioForm">
+                    <div class="form-group">
+                        <input class="form-control" readonly="readonly" name="Id" type="hidden" placeholder="Id" />
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nome" ng-model="nome" placeholder="Nome" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nome" ng-model="email" placeholder="E-mail" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nome" ng-model="telefones" placeholder="Telefones" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nome" ng-model="cpf" placeholder="CPF" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSalvar" data-dismiss="modal" ng-click="adicionarPessoa()">Adicionar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="limparDados()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* FIM MODAL - CADASTRAR  *@
+
+@* INÍCIO MODAL - ATUALIZAR  *@
+<div class="modal" id="AtualizarPessoa" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-info">Atualizar Pessoas</h3>
+            </div>
+            <div class="modal-body" style="margin-left: 20px">
+                <form class="form-horizontal" name="AtualizarForm">
+                    <div class="form-group">
+                        <input class="form-control" readonly="readonly" name="Id" ng-model="AtualizadoId" type="hidden" placeholder="Id" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text-info"> Nome</label>
+                        <input class="form-control" name="Nome" ng-model="AtualizadoNome" type="text" placeholder="Nome" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text-info"> Email</label>
+                        <input class="form-control" name="Email" ng-model="AtualizadoEmail" type="email" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text-info"> CPF</label>
+                        <input class="form-control" name="CPF" ng-model="AtualizadoCpf" type="text" placeholder="CPF" />
+                    </div>
+                    <div class="form-group">
+                        <label class="text-info"> Telefones</label>
+                        <input class="form-control" name="Telefones" ng-model="AtualizadoTelefones" type="text" placeholder="Telefones" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnUpdate" data-dismiss="modal" ng-click="atualizarPessoa()">
+                    Atualizar
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* FIM MODAL - ATUALIZAR  *@
+
+@* INÍCIO MODAL *@
+
+<div class="modal" role="dialog" id="ExcluirPessoa">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-info">Você tem certeza que deseja excluir?</h3>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <p>Id o : {{AtualizadoId}}</p>
+                    <p>Nome  : {{AtualizadoNome}}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="excluir(AtualizadoId)">Excluir</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* FIM MODAL - EXCLUIR *@
+
+    </div>
+@* FIM DIV - panel panel-info *@
+
+</div>
+
+
+@section scripts{
+    <script src="~/Angular/Pessoas/Model.js"></script>
+    <script src="~/Angular/Pessoas/Service.js"></script>
+    <script src="~/Angular/Pessoas/Controller.js"></script>
+    }

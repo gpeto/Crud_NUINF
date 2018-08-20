@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PessoasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Pessoas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="50" />
+    <Property Name="cpf" Type="nvarchar" MaxLength="50" />
+    <Property Name="dataNascimento" Type="date" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="telefones" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Telefones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ddd" Type="nchar" MaxLength="10" />
+    <Property Name="numero" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_PesTelefones">
+    <End Role="Pessoas" Type="Self.Pessoas" Multiplicity="1" />
+    <End Role="Telefones" Type="Self.Telefones" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Telefones">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PessoasModelStoreContainer">
+    <EntitySet Name="Pessoas" EntityType="Self.Pessoas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telefones" EntityType="Self.Telefones" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PesTelefones" Association="Self.FK_PesTelefones">
+      <End Role="Pessoas" EntitySet="Pessoas" />
+      <End Role="Telefones" EntitySet="Telefones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

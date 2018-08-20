@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud_Angular", "Crud_Angular\Crud_Angular.csproj", "{F6986F48-E52B-4704-98DF-1F03F8FECB6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6986F48-E52B-4704-98DF-1F03F8FECB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6986F48-E52B-4704-98DF-1F03F8FECB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6986F48-E52B-4704-98DF-1F03F8FECB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6986F48-E52B-4704-98DF-1F03F8FECB6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5842749B-2A06-4BC7-BA82-9B8EAF538D05}
+	EndGlobalSection
+EndGlobal
